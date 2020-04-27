@@ -40,6 +40,7 @@ time, mark, audio, video {
     grid-area: header;
     background-color: rgb(83, 146, 116);
     text-align: center;
+    align-items: center;
 }
 
 .playground {
