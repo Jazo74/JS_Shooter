@@ -2,7 +2,9 @@
 let num = 1;
 let score = 0;
 let swoosh = document.getElementById('swoosh');
+let cling = document.getElementById('cling');
 let currentHeight = window.innerHeight;
+let maxDeep = currentHeight - 300;
 const headerDiv = document.querySelector('.header')
 const footerDiv = document.querySelector('.footer')
 const containerDiv = document.querySelector('.playground');
@@ -36,6 +38,16 @@ function onHit(event) {
   document.getElementById("score").innerHTML = "Score: "  + score;
 }
 
+// This happens when a hit landed on a good target, like orange
+function onFail(event) {
+    const hitTarget = event.target
+    cling.play();
+    //event.target.src = './covid_hit.png';
+    event.target.style.opacity = 0;
+    score -= 5;
+    document.getElementById("score").innerHTML = "Score: "  + score;
+  }
+
 // Creating audio buttons
 function addAudioButtons(footerDiv, audio) {
 
@@ -66,7 +78,8 @@ function addAudioButtons(footerDiv, audio) {
 
 // Creating targets
 function createATarget(containerDiv) {
-    let rndVertical = Math.floor(Math.random() * 650);
+    let rndTarget = Math.floor(Math.random() * 2);
+    let rndVertical = Math.floor(Math.random() * maxDeep);
     let rndSpeed = 0;
     while (true) {
         rndSpeed = Math.floor(Math.random() * 6);
@@ -74,18 +87,25 @@ function createATarget(containerDiv) {
             break;
         }
     }
+    
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
-    img.setAttribute('src', './covid.png')
+    if (rndTarget >= 1){
+        img.setAttribute('src', './covid.png')
+        img.setAttribute('width', '280')
+        img.addEventListener('mouseover', onHit, { once: true })
+    } else{
+        img.setAttribute('src', './orange.png')
+        img.setAttribute('width', '130px')
+        img.addEventListener('mouseover', onFail, { once: true })
+    }
     img.setAttribute('id', `target_${num}`)
-    img.setAttribute('width', '280')
     img.setAttribute('height', 'auto')
-    img.addEventListener('mouseover', onHit, { once: true })
     containerDiv.appendChild(img)
     img.style['margin-top'] = rndVertical;
     img.style.transitionDuration = `${rndSpeed}s`;
     setTimeout(makeOneMove.bind(null,num),50);
-    setTimeout(removeATarget.bind(null, `target_${num}`),6000);
+    setTimeout(removeATarget.bind(null, `target_${num}`),(rndSpeed*1000)-300);
     num++
 }
 
@@ -98,6 +118,7 @@ function removeATarget(id){
 function resizeWindow(){
     currentHeight = window.innerHeight;
     containerDiv.style.height = currentHeight - 190;
+    let maxDeep = currentHeight - 300;
 }
 
 // Starting program
