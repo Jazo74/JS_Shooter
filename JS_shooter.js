@@ -22,7 +22,7 @@ function main() {
 
 function onHit(event) {
   const hitTarget = event.target
-  console.log(hitTarget)
+  event.target.style.opacity = 0;
 }
 
 function createTarget(amount, containerDiv) {
@@ -44,8 +44,8 @@ function createTarget(amount, containerDiv) {
 }
 
 
-const target = document.getElementsByClassName("target");
-target[0].style['margin-left'] = '1000px';
+/*const target = document.getElementsByClassName("target");
+target[0].style['margin-left'] = '1000px';*/
 
 
 
