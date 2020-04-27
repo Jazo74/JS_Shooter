@@ -19,19 +19,18 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-
 .main {
-    background-color: black;
+    background-color: rgb(16, 68, 6);
     display: grid;
     grid-template-areas: "header"
                          "playground"
                          "footer";
-    grid-template-rows: 120px auto 100px;
+    grid-template-rows: 100px auto 100px;
     grid-gap: 10px;
 }
 .title {
-    font-size: 32px;
-    font-weight: bold;
+    font-family: 'Audiowide', cursive;
+    font-size: 48px;
     color: wheat;
     padding-top: 10px;
     padding-bottom: 12px;
@@ -39,16 +38,19 @@ time, mark, audio, video {
 
 .header {
     grid-area: header;
-    background-color: rgb(55, 15, 121);
+    background-color: rgb(83, 146, 116);
     text-align: center;
 }
 
 .playground {
-    height: 770px;
+    height: 800px;
     background-color: rgb(49, 48, 48);
     cursor: crosshair;
     display: flex;
     overflow: hidden;
+    background-image: url(./wallpaper_1.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .footer {
     grid-area: footer;
@@ -85,11 +87,23 @@ time, mark, audio, video {
     background-color: rgb(97, 97, 97);
 }
 
-#unmuteButton {
-    width: 100px;
-    height: 40px;
+.audioButton {
+    font-family: 'Audiowide', cursive;
+    font-size: 20px;
+    margin: 10px;
+    padding: 0;
+    width: 180px;
+    height: 70px;
+    background-color: rgb(83, 146, 116);
+    display: inline-block;
 }
 
+#score {
+    float: left;
+    margin-left: 10px;
+    margin-left: 10px;
+    font-size: 22px;
+}
 
 
 
