@@ -73,7 +73,7 @@ function createATarget(containerDiv) {
     img.setAttribute('id', `target_${num}`)
     img.setAttribute('width', '230')
     img.setAttribute('height', '150')
-    img.addEventListener('click', onHit, { once: true })
+    img.addEventListener('mouseover', onHit, { once: true })
     containerDiv.appendChild(img)
     img.style['margin-top'] = rndVertical;
     setTimeout(makeOneMove.bind(null,num),50);
