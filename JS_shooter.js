@@ -47,6 +47,7 @@ function onHit(event) {
   event.target.style.opacity = 0;
   score++;
   console.log(score);
+  document.getElementById("score").innerHTML = "Score: "  + score;
 }
 
 // function createTarget(amount, containerDiv) {
