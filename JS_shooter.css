@@ -19,6 +19,11 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+:root {
+    --target-bg-color: red;
+    --target-bg-hover-color: rgb(190, 11, 4);
+}
+
 .main {
     background-color: black;
     display: grid;
@@ -57,3 +62,10 @@ time, mark, audio, video {
     background-color: darkslategray;
 }
 
+.target {
+    background-color: var(--target-bg-color);
+}
+
+.target:hover {
+    background-color: var(--target-bg-hover-color);
+}
