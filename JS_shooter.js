@@ -1,17 +1,36 @@
 
+
+
+
+
+
+
 function main() {
   //"global"
   const containerDiv = document.querySelector('.playground');
-  
 
 
+  createTarget(4, containerDiv);
+  //setTimeout(makeThemMove, 1000);
 
 
-
-  createTarget(5, containerDiv);
-/*const target = document.getElementsByClassName("target");
-target[0].style['margin-left'] = '1000px';*/
 }
+
+
+function makeThemMove() {
+  const targets = document.querySelectorAll(".target");
+  for (let i = 0; i < targets.length; i++) {
+    const element = targets[i];
+    element.classList.remove('hide')
+    element.style['margin-left'] = '1000px';
+  }
+}
+
+function makeOneMove(num) {
+    const target = document.getElementById(`target_${num}`);
+      target.classList.remove('hide');
+      target.style['margin-left'] = '1000px';
+  }
 
 
 function onHit(event) {
@@ -34,6 +53,7 @@ function createTarget(amount, containerDiv) {
     img.addEventListener('click', onHit, { once: true })
     containerDiv.appendChild(img)
     img.style['margin-top'] = rndVertical;
+    setTimeout(makeOneMove.bind(null,num),1000);
     num++
   }
 
