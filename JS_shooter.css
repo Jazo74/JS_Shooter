@@ -19,9 +19,6 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-:root {
-    
-}
 
 .main {
     background-color: black;
@@ -65,16 +62,33 @@ time, mark, audio, video {
     position: absolute;    
 }
 
-.target {
-}
-
-.target:hover {
-}
-
 
 .hide {
     display: none;
 }
+
+.audio {
+    background-color: rgb(173, 169, 169);
+    padding: 2px;
+
+}
+
+.audio:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+.mute {
+    background-color: rgb(173, 169, 169);
+    box-shadow: black;
+    padding: 2px;
+}
+
+.mute:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+
+
 
 
 

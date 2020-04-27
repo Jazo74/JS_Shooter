@@ -7,7 +7,13 @@ let score = 0;
 
 function main() {
   //"global"
+  const headerDiv = document.querySelector('.header')
   const containerDiv = document.querySelector('.playground');
+  const audio = new Audio('Audio/SuTurno.mp3')
+
+
+
+  addAudioButtons(headerDiv, audio)
 
 
   setInterval(() => {
@@ -21,6 +27,7 @@ function main() {
 }
 
 
+
 function makeThemMove() {
   const targets = document.querySelectorAll(".target");
   for (let i = 0; i < targets.length; i++) {
@@ -31,10 +38,10 @@ function makeThemMove() {
 }
 
 function makeOneMove(num) {
-    const target = document.getElementById(`target_${num}`);
-      target.classList.remove('hide');
-      target.style['margin-left'] = '1800px';
-  }
+  const target = document.getElementById(`target_${num}`);
+  target.classList.remove('hide');
+  target.style['margin-left'] = '1800px';
+}
 
 
 function onHit(event) {
@@ -59,29 +66,46 @@ function createTarget(amount, containerDiv) {
     img.addEventListener('click', onHit, { once: true })
     containerDiv.appendChild(img)
     img.style['margin-top'] = rndVertical;
-    setTimeout(makeOneMove.bind(null,num),1000);
+    setTimeout(makeOneMove.bind(null, num), 1000);
     num++
   }
 
 }
 
 function createATarget(containerDiv) {
-    let rndVertical = Math.floor(Math.random() * 700);
-    const img = document.createElement('img')
-    img.setAttribute('class', 'target')
-    img.setAttribute('src', './covid.png')
-    img.setAttribute('id', `target_${num}`)
-    img.setAttribute('width', '230')
-    img.setAttribute('height', '150')
-    img.addEventListener('click', onHit, { once: true })
-    containerDiv.appendChild(img)
-    img.style['margin-top'] = rndVertical;
-    setTimeout(makeOneMove.bind(null,num),50);
-    num++
-  }
+  let rndVertical = Math.floor(Math.random() * 700);
+  const img = document.createElement('img')
+  img.setAttribute('class', 'target')
+  img.setAttribute('src', './covid.png')
+  img.setAttribute('id', `target_${num}`)
+  img.setAttribute('width', '230')
+  img.setAttribute('height', '150')
+  img.addEventListener('click', onHit, { once: true })
+  containerDiv.appendChild(img)
+  img.style['margin-top'] = rndVertical;
+  setTimeout(makeOneMove.bind(null, num), 50);
+  num++
+}
 
 
 
+function addAudioButtons(headerDiv, audio) {
+
+  const audioButton = document.createElement('button')
+  audioButton.addEventListener('click', function() {audio.play();})
+  audioButton.setAttribute('class', 'audio')
+  audioButton.setAttribute('alt', 'click to play music')
+  audioButton.innerText = 'Play'
+
+  const muteButton = document.createElement('button')
+  muteButton.addEventListener('click', function() {audio.pause();})
+  muteButton.setAttribute('class', 'mute')
+  muteButton.setAttribute('alt', 'click to stop music')
+  muteButton.innerText = 'Pause'
+
+  headerDiv.appendChild(audioButton)
+  headerDiv.appendChild(muteButton)
+}
 
 
 
