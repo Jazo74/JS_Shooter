@@ -8,8 +8,6 @@ function main() {
 
 
   createTarget(5, containerDiv)
-  const target = document.querySelector('.target')
-  target.addEventListener('click', onHit, { once: true })
 }
 
 
@@ -29,6 +27,7 @@ function createTarget(amount, containerDiv) {
     img.setAttribute('id', `target_${num}`)
     img.setAttribute('width', '230')
     img.setAttribute('height', '150')
+    img.addEventListener('click', onHit, { once: true })
 
     containerDiv.appendChild(img)
     num++
