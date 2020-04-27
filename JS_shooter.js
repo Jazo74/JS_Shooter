@@ -1,6 +1,6 @@
 
-
-
+let num = 1;
+let score = 0;
 
 
 
@@ -10,7 +10,11 @@ function main() {
   const containerDiv = document.querySelector('.playground');
 
 
-  createTarget(4, containerDiv);
+  setInterval(() => {
+    createATarget(containerDiv);
+  }, 2000);
+
+  //createTarget(containerDiv);
   //setTimeout(makeThemMove, 1000);
 
 
@@ -29,13 +33,15 @@ function makeThemMove() {
 function makeOneMove(num) {
     const target = document.getElementById(`target_${num}`);
       target.classList.remove('hide');
-      target.style['margin-left'] = '1000px';
+      target.style['margin-left'] = '1800px';
   }
 
 
 function onHit(event) {
   const hitTarget = event.target
   event.target.style.opacity = 0;
+  score++;
+  console.log(score);
 }
 
 function createTarget(amount, containerDiv) {
@@ -49,7 +55,6 @@ function createTarget(amount, containerDiv) {
     img.setAttribute('id', `target_${num}`)
     img.setAttribute('width', '230')
     img.setAttribute('height', '150')
-    console.log(rndVertical);
     img.addEventListener('click', onHit, { once: true })
     containerDiv.appendChild(img)
     img.style['margin-top'] = rndVertical;
@@ -58,6 +63,21 @@ function createTarget(amount, containerDiv) {
   }
 
 }
+
+function createATarget(containerDiv) {
+    let rndVertical = Math.floor(Math.random() * 700);
+    const img = document.createElement('img')
+    img.setAttribute('class', 'target')
+    img.setAttribute('src', 'https://pngimg.com/uploads/coronavirus/coronavirus_PNG7.png')
+    img.setAttribute('id', `target_${num}`)
+    img.setAttribute('width', '230')
+    img.setAttribute('height', '150')
+    img.addEventListener('click', onHit, { once: true })
+    containerDiv.appendChild(img)
+    img.style['margin-top'] = rndVertical;
+    setTimeout(makeOneMove.bind(null,num),50);
+    num++
+  }
 
 
 

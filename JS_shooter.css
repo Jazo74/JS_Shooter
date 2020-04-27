@@ -52,6 +52,7 @@ time, mark, audio, video {
     background-color: rgb(49, 48, 48);
     cursor: crosshair;
     display: flex;
+    overflow: hidden;
 }
 .footer {
     grid-area: footer;
@@ -60,7 +61,7 @@ time, mark, audio, video {
 .target {
     margin-left: 0px;
     margin-top: 0px;
-    transition-duration: 4s;
+    transition-duration: 5s;
     position: absolute;    
 }
 
