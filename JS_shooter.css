@@ -43,7 +43,7 @@ time, mark, audio, video {
 }
 
 .playground {
-    height: 905px;
+    height: 770px;
     padding: 30px;
     grid-area: playground;
     display: grid;
