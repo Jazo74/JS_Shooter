@@ -48,7 +48,6 @@ time, mark, audio, video {
 
 .playground {
     height: 770px;
-    padding: 30px;
     background-color: rgb(49, 48, 48);
     cursor: crosshair;
     display: flex;
@@ -75,5 +74,9 @@ time, mark, audio, video {
     display: none;
 }
 
+#unmuteButton {
+    width: 100px;
+    height: 40px;
+}
 
 

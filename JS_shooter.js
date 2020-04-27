@@ -1,7 +1,10 @@
 
 let num = 1;
 let score = 0;
-
+let swoosh = document.getElementById('swoosh');
+unmuteButton.addEventListener('click', function() {
+    video.muted = false;
+  });
 
 
 
@@ -39,6 +42,7 @@ function makeOneMove(num) {
 
 function onHit(event) {
   const hitTarget = event.target
+  swoosh.play();
   event.target.src = './covid_hit.png';
   event.target.style.opacity = 0;
   score++;
@@ -69,12 +73,11 @@ function createATarget(containerDiv) {
     let rndVertical = Math.floor(Math.random() * 700);
     let rndSpeed = 0;
     while (true) {
-        rndSpeed = Math.floor(Math.random() * 7);
+        rndSpeed = Math.floor(Math.random() * 6);
         if (rndSpeed >= 1) {
             break;
         }
     }
-    console.log(rndSpeed);
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
     img.setAttribute('src', './covid.png')
@@ -93,9 +96,6 @@ function createATarget(containerDiv) {
   function removeATarget(id){
     document.getElementById(id).remove();
   }
-
-
-
 
 
 
