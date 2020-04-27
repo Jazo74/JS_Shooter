@@ -77,7 +77,11 @@ function createATarget(containerDiv) {
     containerDiv.appendChild(img)
     img.style['margin-top'] = rndVertical;
     setTimeout(makeOneMove.bind(null,num),50);
+    setTimeout(removeATarget.bind(null, `target_${num}`),5000);
     num++
+  }
+  function removeATarget(id){
+    document.getElementById(id).remove();
   }
 
 
