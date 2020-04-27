@@ -61,7 +61,7 @@ time, mark, audio, video {
     margin-left: 0px;
     margin-top: 0px;
     transition-duration: 4s;
-    display: inline-block;
+    position: absolute;    
 }
 
 .target {
