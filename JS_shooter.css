@@ -20,8 +20,7 @@ time, mark, audio, video {
 }
 
 :root {
-    --target-bg-color: red;
-    --target-bg-hover-color: rgb(190, 11, 4);
+    
 }
 
 .main {
@@ -68,9 +67,7 @@ time, mark, audio, video {
 }
 
 .target {
-    background-color: var(--target-bg-color);
 }
 
 .target:hover {
-    background-color: var(--target-bg-hover-color);
 }

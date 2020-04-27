@@ -9,6 +9,7 @@ target[0].style['margin-left'] = '1000px';
 
 function main() {
   createTarget(1)
+  
 }
 
 
