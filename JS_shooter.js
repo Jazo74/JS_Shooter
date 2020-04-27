@@ -39,6 +39,7 @@ function makeOneMove(num) {
 
 function onHit(event) {
   const hitTarget = event.target
+  event.target.src = './covid_hit.png';
   event.target.style.opacity = 0;
   score++;
   console.log(score);
@@ -68,7 +69,7 @@ function createATarget(containerDiv) {
     let rndVertical = Math.floor(Math.random() * 700);
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
-    img.setAttribute('src', 'https://pngimg.com/uploads/coronavirus/coronavirus_PNG7.png')
+    img.setAttribute('src', './covid.png')
     img.setAttribute('id', `target_${num}`)
     img.setAttribute('width', '230')
     img.setAttribute('height', '150')
