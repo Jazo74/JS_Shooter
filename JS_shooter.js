@@ -2,13 +2,16 @@
 let num = 1;
 let score = 0;
 let swoosh = document.getElementById('swoosh');
+let currentHeight = window.innerHeight;
+const headerDiv = document.querySelector('.header')
+const footerDiv = document.querySelector('.footer')
+const containerDiv = document.querySelector('.playground');
 
 // Main program
 function main() {
   //"global"
-    const headerDiv = document.querySelector('.header')
-    const footerDiv = document.querySelector('.footer')
-    const containerDiv = document.querySelector('.playground');
+    window.addEventListener('resize', resizeWindow);
+    containerDiv.style.height = currentHeight - 190;
     const audio = new Audio('Audio/SuTurno.mp3')
     addAudioButtons(footerDiv, audio)
     setInterval(() => {
@@ -20,7 +23,7 @@ function main() {
 function makeOneMove(num) {
   const target = document.getElementById(`target_${num}`);
   target.classList.remove('hide');
-  target.style['margin-left'] = '1800px';
+  target.style['margin-left'] = '2000px';
 }
 
 // This happens when a hit landed on a target
@@ -89,6 +92,12 @@ function createATarget(containerDiv) {
 //Removing old targets
 function removeATarget(id){
     document.getElementById(id).remove();
+}
+
+//Resizing the browser window
+function resizeWindow(){
+    containerDiv.style.height = currentHeight - 190;
+    console.log('resizing happened');
 }
 
 // Starting program
