@@ -1,11 +1,4 @@
 
-
-const playground = document.getElementById('playground');
-
-
-
-
-
 function main() {
   //"global"
   const containerDiv = document.querySelector('.playground')
