@@ -96,8 +96,8 @@ function removeATarget(id){
 
 //Resizing the browser window
 function resizeWindow(){
+    currentHeight = window.innerHeight;
     containerDiv.style.height = currentHeight - 190;
-    console.log('resizing happened');
 }
 
 // Starting program
