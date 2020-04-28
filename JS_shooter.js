@@ -1,4 +1,4 @@
-
+// komment
 let num = 1;
 let score = 0;
 let swoosh = document.getElementById('swoosh');
