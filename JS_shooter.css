@@ -34,6 +34,7 @@ time, mark, audio, video {
     color: wheat;
     padding-top: 10px;
     padding-bottom: 12px;
+    display: inline-block;
 }
 
 .header {
@@ -106,16 +107,25 @@ time, mark, audio, video {
     margin-left: 15px;
     margin-left: 15px;
     font-size: 22px;
-    font-weight: bold;
-    color: rgb(4, 46, 4);
+    color: wheat;
+    padding-left: 10px;
 }
 
 
 .score {
-    height: 5%;
-    border: rgb(31, 21, 10) solid 2px;
-    background-color: rgba(240, 235, 235, 0.87);
-    padding: 1px;
+    margin: 0 !important;
+    height: 35px;
+    width: 110px;
+    border: rgb(18, 60, 94) solid 1px;
+    background-color: rgb(83, 146, 116);
+    padding-top: 5px;
 }
 
+.logo {
+    margin-top: 5px;
+    float: right;
+    height: 80px;
+    width: auto;
+    position: absolute;
+}
 

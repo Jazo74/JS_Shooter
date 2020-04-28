@@ -39,7 +39,7 @@ function onHit(event) {
   event.target.src = './images/covid_hit.png';
   event.target.style.opacity = 0;
   score++;
-  document.getElementById("score").innerHTML = "Score: "  + score;
+  document.getElementById("score").innerHTML = "Score:  "  + score;
 }
 
 // This happens when a hit landed on a good target, like orange
@@ -49,7 +49,7 @@ function onFail(event) {
     //event.target.src = './covid_hit.png';
     event.target.style.opacity = 0;
     score -= 3;
-    document.getElementById("score").innerHTML = "Score: "  + score;
+    document.getElementById("score").innerHTML = "Score:  "  + score;
   }
 
 // Creating audio buttons
@@ -91,7 +91,6 @@ function createATarget(containerDiv) {
             break;
         }
     }
-    console.log(rndTarget);
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
     if (rndTarget === 2){
