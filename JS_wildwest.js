@@ -25,7 +25,7 @@ function main() {
     addAudioButtons(footerDiv, audio)
     setInterval(() => {
     createATarget(containerDiv);
-  }, 800);
+  }, 900);
 }
 
 // Moving the targets

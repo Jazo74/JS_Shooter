@@ -81,10 +81,14 @@ time, mark, audio, video {
 
 #third {
     grid-area: third;
+    background-image: url(./Images/locked.png);
+    background-size: 100% 100%;
 }
 
 #fourth {
     grid-area: fourth;
+    background-image: url(./Images/locked.png);
+    background-size: 100% 100%;
 }
 
 .footer {
