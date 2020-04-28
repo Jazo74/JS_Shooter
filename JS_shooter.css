@@ -111,6 +111,15 @@ time, mark, audio, video {
     padding-left: 10px;
 }
 
+#countdown {
+    float: left;
+    margin-left: 15px;
+    margin-left: 15px;
+    font-size: 22px;
+    color: wheat;
+    padding-left: 10px;
+}
+
 
 .score {
     margin: 0 !important;
