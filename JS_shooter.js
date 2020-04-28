@@ -1,6 +1,7 @@
 // komment
 let num = 1;
 let score = 0;
+let timer = 0;
 let swoosh = document.getElementById('swoosh');
 let cling = document.getElementById('cling');
 let currentHeight = window.innerHeight;
@@ -20,6 +21,7 @@ function main() {
     window.addEventListener('resize', resizeWindow);
     containerDiv.style.height = currentHeight - 190;
     const audio = new Audio('Audio/SuTurno.mp3')
+    setInterval(count,1000)
     addAudioButtons(footerDiv, audio)
     setInterval(() => {
     createATarget(containerDiv);
@@ -33,6 +35,15 @@ function makeOneMove(num) {
   let rndVertical = Math.floor(Math.random() * maxDeep);
   target.style['margin-left'] = animEnd;
   target.style['margin-top'] = rndVertical;
+}
+
+function count(){
+  timer = timer + 1;
+  document.getElementById("countdown").innerHTML = "Timer: "  + timer;
+  if(timer == 60){
+    alert("Game is finished! Point: " + score);
+    timer = 0;
+  }
 }
 
 // This happens when a hit landed on a target
