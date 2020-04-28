@@ -40,7 +40,7 @@ function makeOneMove(num) {
 function count(){
   timer = timer + 1;
   document.getElementById("countdown").innerHTML = "Timer: "  + timer;
-  if(timer == 10){
+  if(timer == 60){
     alert("Game is finished! Point: " + score);
     timer = 0;
   }
