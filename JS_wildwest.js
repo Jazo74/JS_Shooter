@@ -6,7 +6,7 @@ let swoosh = document.getElementById('swoosh');
 let cling = document.getElementById('cling');
 let currentHeight = window.innerHeight;
 let currentWidth = window.innerWidth;
-let animEnd = currentWidth - 250;
+let animEnd = currentWidth - 550;
 let animEndY = currentHeight - 300;
 let maxDeep = currentHeight - 300;
 const headerDiv = document.querySelector('.header')
@@ -21,20 +21,17 @@ function main() {
     window.addEventListener('resize', resizeWindow);
     containerDiv.style.height = currentHeight - 190;
     const audio = new Audio('Audio/SuTurno.mp3')
-    setInterval(count,1000)
+    //setInterval(count,1000)
     addAudioButtons(footerDiv, audio)
     setInterval(() => {
     createATarget(containerDiv);
-  }, 1000);
+  }, 800);
 }
 
 // Moving the targets
 function makeOneMove(num) {
   const target = document.getElementById(`target_${num}`);
   target.classList.remove('hide');
-  let rndVertical = Math.floor(Math.random() * maxDeep);
-  target.style['margin-left'] = animEnd;
-  target.style['margin-top'] = rndVertical;
 }
 
 function count(){
@@ -49,8 +46,9 @@ function count(){
 // This happens when a hit landed on a target
 function onHit(event) {
   const hitTarget = event.target
-  swoosh.play();
-  event.target.src = './images/covid_hit.png';
+  shoot.play();
+  event.target.src = './images/moneybag.png';
+  event.target.width = '100px';
   event.target.style.opacity = 0;
   score++;
   document.getElementById("score").innerHTML = "Score:  "  + score;
@@ -59,7 +57,7 @@ function onHit(event) {
 // This happens when a hit landed on a good target, like orange
 function onFail(event) {
     const hitTarget = event.target
-    cling.play();
+    shoot.play();
     //event.target.src = './covid_hit.png';
     event.target.style.opacity = 0;
     score -= 3;
@@ -97,10 +95,10 @@ function addAudioButtons(footerDiv, audio) {
 // Creating targets
 function createATarget(containerDiv) {
     let rndTarget = Math.floor(Math.random() * 3);
-    let rndVertical = Math.floor(Math.random() * maxDeep);
+    let rndHorizontal = Math.floor(Math.random() * animEnd);
     let rndSpeed = 0;
     while (true) {
-        rndSpeed = Math.floor(Math.random() * 4);
+        rndSpeed = Math.floor(Math.random() * 2);
         if (rndSpeed >= 1) {
             break;
         }
@@ -108,22 +106,26 @@ function createATarget(containerDiv) {
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
     if (rndTarget === 2){
-        img.setAttribute('src', './images/covid.png')
-        img.setAttribute('width', '260')
-        img.addEventListener('mouseover', onHit, { once: true })
+        img.setAttribute('src', './images/bandit1.png')
+        img.setAttribute('width', '500')
+        img.style['margin-top'] = animEndY-390;
+        img.addEventListener('click', onHit, { once: true })
     } else if (rndTarget === 1) {
-        img.setAttribute('src', './images/orange.png')
-        img.setAttribute('width', '120px')
-        img.addEventListener('mouseover', onFail, { once: true })
+        img.setAttribute('src', './images/bandit2.png')
+        img.setAttribute('width', '500px')
+        img.style['margin-top'] = animEndY-390;
+        img.addEventListener('click', onHit, { once: true })
     } else {
-        img.setAttribute('src', './images/watermelon.png')
-        img.setAttribute('width', '120px')
-        img.addEventListener('mouseover', onFail, { once: true })
+        img.setAttribute('src', './images/cowboy1.png')
+        img.setAttribute('width', '550px')
+        img.style['margin-top'] = animEndY-415;
+        img.addEventListener('click', onHit, { once: true })
     }
     img.setAttribute('id', `target_${num}`)
     img.setAttribute('height', 'auto')
     containerDiv.appendChild(img)
-    img.style['margin-top'] = rndVertical;
+    img.style['margin-left'] = rndHorizontal;
+    console.log(animEnd,rndHorizontal);
     img.style.transitionDuration = `${rndSpeed}s`;
     setTimeout(makeOneMove.bind(null,num),50);
     setTimeout(removeATarget.bind(null, `target_${num}`),(rndSpeed*1000));
