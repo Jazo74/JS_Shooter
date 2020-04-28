@@ -4,6 +4,8 @@ let score = 0;
 let swoosh = document.getElementById('swoosh');
 let cling = document.getElementById('cling');
 let currentHeight = window.innerHeight;
+let currentWidth = window.innerWidth;
+let animEnd = currentWidth - 250;
 let maxDeep = currentHeight - 300;
 const headerDiv = document.querySelector('.header')
 const footerDiv = document.querySelector('.footer')
@@ -25,7 +27,7 @@ function main() {
 function makeOneMove(num) {
   const target = document.getElementById(`target_${num}`);
   target.classList.remove('hide');
-  target.style['margin-left'] = '2000px';
+  target.style['margin-left'] = animEnd;
 }
 
 // This happens when a hit landed on a target
@@ -82,8 +84,8 @@ function createATarget(containerDiv) {
     let rndVertical = Math.floor(Math.random() * maxDeep);
     let rndSpeed = 0;
     while (true) {
-        rndSpeed = Math.floor(Math.random() * 6);
-        if (rndSpeed >= 2) {
+        rndSpeed = Math.floor(Math.random() * 4);
+        if (rndSpeed >= 1) {
             break;
         }
     }
@@ -92,11 +94,11 @@ function createATarget(containerDiv) {
     img.setAttribute('class', 'target')
     if (rndTarget >= 1){
         img.setAttribute('src', './covid.png')
-        img.setAttribute('width', '280')
+        img.setAttribute('width', '260')
         img.addEventListener('mouseover', onHit, { once: true })
     } else{
         img.setAttribute('src', './orange.png')
-        img.setAttribute('width', '130px')
+        img.setAttribute('width', '120px')
         img.addEventListener('mouseover', onFail, { once: true })
     }
     img.setAttribute('id', `target_${num}`)
@@ -105,7 +107,7 @@ function createATarget(containerDiv) {
     img.style['margin-top'] = rndVertical;
     img.style.transitionDuration = `${rndSpeed}s`;
     setTimeout(makeOneMove.bind(null,num),50);
-    setTimeout(removeATarget.bind(null, `target_${num}`),(rndSpeed*1000)-300);
+    setTimeout(removeATarget.bind(null, `target_${num}`),(rndSpeed*1000));
     num++
 }
 
@@ -117,7 +119,9 @@ function removeATarget(id){
 //Resizing the browser window
 function resizeWindow(){
     currentHeight = window.innerHeight;
-    containerDiv.style.height = currentHeight - 190;
+    currentWidth = window.innerWidth;
+    containerDiv.style.height = currentHeight - 210;
+    containerDiv.style.width = currentWidth - 210;
     let maxDeep = currentHeight - 300;
 }
 

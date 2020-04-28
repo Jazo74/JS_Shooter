@@ -59,7 +59,8 @@ time, mark, audio, video {
 .target {
     margin-left: 0px;
     margin-top: 0px;
-    position: absolute;    
+    position: absolute;
+    transition-timing-function: linear;    
 }
 
 
