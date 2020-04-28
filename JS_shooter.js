@@ -6,6 +6,7 @@ let cling = document.getElementById('cling');
 let currentHeight = window.innerHeight;
 let currentWidth = window.innerWidth;
 let animEnd = currentWidth - 250;
+let animEndY = currentHeight - 300;
 let maxDeep = currentHeight - 300;
 const headerDiv = document.querySelector('.header')
 const footerDiv = document.querySelector('.footer')
@@ -29,7 +30,9 @@ function main() {
 function makeOneMove(num) {
   const target = document.getElementById(`target_${num}`);
   target.classList.remove('hide');
+  let rndVertical = Math.floor(Math.random() * maxDeep);
   target.style['margin-left'] = animEnd;
+  target.style['margin-top'] = rndVertical;
 }
 
 // This happens when a hit landed on a target
