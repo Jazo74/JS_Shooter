@@ -34,7 +34,7 @@ function makeOneMove(num) {
 function onHit(event) {
   const hitTarget = event.target
   swoosh.play();
-  event.target.src = './covid_hit.png';
+  event.target.src = './images/covid_hit.png';
   event.target.style.opacity = 0;
   score++;
   document.getElementById("score").innerHTML = "Score: "  + score;
@@ -46,7 +46,7 @@ function onFail(event) {
     cling.play();
     //event.target.src = './covid_hit.png';
     event.target.style.opacity = 0;
-    score -= 5;
+    score -= 3;
     document.getElementById("score").innerHTML = "Score: "  + score;
   }
 
@@ -80,7 +80,7 @@ function addAudioButtons(footerDiv, audio) {
 
 // Creating targets
 function createATarget(containerDiv) {
-    let rndTarget = Math.floor(Math.random() * 2);
+    let rndTarget = Math.floor(Math.random() * 3);
     let rndVertical = Math.floor(Math.random() * maxDeep);
     let rndSpeed = 0;
     while (true) {
@@ -89,15 +89,19 @@ function createATarget(containerDiv) {
             break;
         }
     }
-    
+    console.log(rndTarget);
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
-    if (rndTarget >= 1){
-        img.setAttribute('src', './covid.png')
+    if (rndTarget === 2){
+        img.setAttribute('src', './images/covid.png')
         img.setAttribute('width', '260')
         img.addEventListener('mouseover', onHit, { once: true })
-    } else{
-        img.setAttribute('src', './orange.png')
+    } else if (rndTarget === 1) {
+        img.setAttribute('src', './images/orange.png')
+        img.setAttribute('width', '120px')
+        img.addEventListener('mouseover', onFail, { once: true })
+    } else {
+        img.setAttribute('src', './images/watermelon.png')
         img.setAttribute('width', '120px')
         img.addEventListener('mouseover', onFail, { once: true })
     }

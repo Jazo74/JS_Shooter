@@ -48,7 +48,7 @@ time, mark, audio, video {
     cursor: crosshair;
     display: flex;
     overflow: hidden;
-    background-image: url(./wallpaper_1.jpg) ;
+    background-image: url(./images/wallpaper_1.jpg) ;
     background-repeat: no-repeat;
     background-size: cover;
 }
