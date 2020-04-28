@@ -14,6 +14,8 @@ const containerDiv = document.querySelector('.playground');
 // Main program
 function main() {
   //"global"
+    const scoreCounter = document.getElementById("score")
+    scoreDesign(scoreCounter)
     window.addEventListener('resize', resizeWindow);
     containerDiv.style.height = currentHeight - 190;
     const audio = new Audio('Audio/SuTurno.mp3')
@@ -128,6 +130,11 @@ function resizeWindow(){
     containerDiv.style.width = currentWidth - 210;
     let maxDeep = currentHeight - 300;
 }
+
+function scoreDesign(scoreCounter) {
+  scoreCounter.setAttribute('class', 'score')
+}
+
 
 // Starting program
 main()

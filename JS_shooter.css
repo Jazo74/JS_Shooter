@@ -111,5 +111,11 @@ time, mark, audio, video {
 }
 
 
+.score {
+    height: 5%;
+    border: rgb(31, 21, 10) solid 2px;
+    background-color: rgba(240, 235, 235, 0.87);
+    padding: 1px;
+}
 
 
