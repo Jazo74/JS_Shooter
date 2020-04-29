@@ -55,6 +55,9 @@ function onHit(event) {
   if (score % 10 == 0) {
     kaching.play()
   }
+  if (score % 6 == 0) {
+    lock.play()
+  }
 }
 
 // This happens when a hit landed on a good target, like orange
@@ -97,7 +100,7 @@ function addAudioButtons(footerDiv, audio) {
 
 // Creating targets
 function createATarget(containerDiv) {
-    let rndTarget = Math.floor(Math.random() * 3);
+    let rndTarget = Math.floor(Math.random() * 4);
     let rndHorizontal = Math.floor(Math.random() * animEnd);
     let rndSpeed = 0;
     while (true) {
@@ -108,16 +111,21 @@ function createATarget(containerDiv) {
     }
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
-    if (rndTarget === 2){
+    if (rndTarget === 3){
         img.setAttribute('src', './images/bandit1.png')
         img.setAttribute('width', '500')
         img.style['margin-top'] = animEndY-390;
         img.addEventListener('click', onHit, { once: true })
-    } else if (rndTarget === 1) {
+    } else if (rndTarget === 2) {
         img.setAttribute('src', './images/bandit2.png')
         img.setAttribute('width', '500px')
         img.style['margin-top'] = animEndY-390;
         img.addEventListener('click', onHit, { once: true })
+    } else if (rndTarget === 1) {
+      img.setAttribute('src', './images/bandito.png')
+      img.setAttribute('width', '425px')
+      img.style['margin-top'] = animEndY-375;
+      img.addEventListener('click', onHit, { once: true })
     } else {
         img.setAttribute('src', './images/cowboy1.png')
         img.setAttribute('width', '550px')
