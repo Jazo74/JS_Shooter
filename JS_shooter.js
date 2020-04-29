@@ -9,16 +9,19 @@ let currentWidth = window.innerWidth;
 let animEnd = currentWidth - 250;
 let animEndY = currentHeight - 300;
 let maxDeep = currentHeight - 300;
-const headerDiv = document.querySelector('.header')
-const footerDiv = document.querySelector('.footer')
+const mainBody = document.querySelector('.main');
+const headerDiv = document.querySelector('.header');
+const footerDiv = document.querySelector('.footer');
 const containerDiv = document.querySelector('.playground');
+const buttonGroup = document.querySelector('.buttonGroup')
+const startupPage = document.querySelector('.startupPage')
 
 // Main program
 function main() {
   "global"
     const scoreCounter = document.getElementById("score")
     scoreDesign(scoreCounter)
-
+    mainBody.height = currentHeight;
     window.addEventListener('resize', resizeWindow);
     containerDiv.style.height = currentHeight - 190;
 
@@ -54,22 +57,17 @@ function count() {
 }
 
 function startWithTimer(){
-  const startupPage = document.querySelector('.startupPage')
-  startupPage.classList.add('hide')
-
+  startupPage.style.display = 'none';
   setInterval(count, 1000)
-
   setInterval(() => {
     createATarget(containerDiv);
   }, 1000);
 }
 
 function startWithOutTimer() {
-  const startupPage = document.querySelector('.startupPage')
-  startupPage.classList.add('hide')
+  startupPage.style.display = 'none';
   const timer = document.getElementById('countdown')
   timer.setAttribute('class', 'hide')
-
   setInterval(() => {
     createATarget(containerDiv);
   }, 1000);
@@ -123,9 +121,9 @@ function addAudioButtons(footerDiv, audio) {
   unMuteButton.setAttribute('alt', 'click to stop sound effect')
   unMuteButton.innerText = 'Mute sound  '
 
-  footerDiv.appendChild(audioButton)
-  footerDiv.appendChild(muteButton)
-  footerDiv.appendChild(unMuteButton)
+  buttonGroup.appendChild(audioButton)
+  buttonGroup.appendChild(muteButton)
+  buttonGroup.appendChild(unMuteButton)
 }
 
 // Creating targets
@@ -177,7 +175,8 @@ function removeATarget(id){
 function resizeWindow(){
     currentHeight = window.innerHeight;
     currentWidth = window.innerWidth;
-    containerDiv.style.height = currentHeight - 210;
+    containerDiv.style.height = currentHeight - 205;
+    mainBody.height = currentHeight;
     let maxDeep = currentHeight - 300;
 }
 

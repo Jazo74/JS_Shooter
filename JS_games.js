@@ -39,7 +39,7 @@ function resizeWindow(){
     currentHeight = window.innerHeight;
     currentWidth = window.innerWidth;
     containerDiv.style.height = currentHeight - 200;
-    containerDiv.style.width = currentWidth - 210;
+    //containerDiv.style.width = currentWidth - 210;
     let maxDeep = currentHeight - 300;
 }
 
