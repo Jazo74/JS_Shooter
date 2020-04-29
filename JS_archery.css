@@ -1,0 +1,143 @@
+body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.main {
+    background-color: rgb(157, 226, 47);
+    display: grid;
+    grid-template-areas: "header"
+                         "playground"
+                         "footer";
+    grid-template-rows: 80px auto 80px;
+    grid-gap: 10px;
+}
+.title {
+    font-family: 'Audiowide', cursive;
+    font-size: 52px;
+    color: rgb(55, 146, 133);
+    padding-top: 10px;
+    padding-bottom: 12px;
+    display: inline-block;
+}
+
+.header {
+    grid-area: header;
+    background-color: rgb(161, 220, 252);
+    text-align: center;
+    align-items: center;
+}
+
+.playground {
+    background-color: rgb(49, 48, 48);
+    cursor: crosshair;
+    display: flex;
+    overflow: hidden;
+    background-image: url(./images/meadow.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+}
+.footer {
+    grid-area: footer;
+    background-color: rgb(72, 136, 22);
+}
+.target {
+    margin-left: 0px;
+    margin-top: 0px;
+    position: absolute;
+    transition-timing-function: linear;    
+}
+
+
+.hide {
+    display: none;
+}
+
+.audio {
+    background-color: rgb(173, 169, 169);
+    padding: 2px;
+
+}
+
+.audio:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+.mute {
+    background-color: rgb(173, 169, 169);
+    box-shadow: black;
+    padding: 2px;
+}
+
+.mute:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+.audioButton {
+    font-family: 'Audiowide', cursive;
+    font-size: 20px;
+    margin: 10px;
+    padding: 0;
+    width: 180px;
+    height: 60px;
+    background-color: rgb(131, 190, 57);
+    border-color: rgb(4, 46, 4);
+    border-radius: 6px;
+    display: inline-block;
+    color: #fcff1e;
+}
+
+#score {
+    float: left;
+    margin-left: 15px;
+    margin-left: 15px;
+    font-size: 22px;
+    color: wheat;
+    padding-left: 10px;
+    background-color: rgb(62, 39, 6) ;
+}
+
+
+.score {
+    margin: 0 !important;
+    height: 35px;
+    width: 110px;
+    border: rgb(18, 60, 94) solid 1px;
+    background-color: rgb(83, 146, 116);
+    padding-top: 5px;
+}
+
+.logo {
+    float: right;
+    margin-top: 5px;
+    height: 100px;
+    width: auto;
+    position: absolute;
+}
+
+#countdown {
+    float: left;
+    margin-left: 15px;
+    margin-left: 15px;
+    font-size: 22px;
+    color: wheat;
+    padding-left: 10px;
+}
+

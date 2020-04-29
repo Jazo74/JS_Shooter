@@ -43,6 +43,7 @@ function count(){
   if(timer == 60){
     alert("Game is finished! Point: " + score);
     timer = 0;
+    score = 0;
   }
 }
 
@@ -55,7 +56,6 @@ function onHit(event) {
   } else {
     event.target.src = './images/bacteria_hit.png';
   }
-
   event.target.style.opacity = 0;
   score++;
   document.getElementById("score").innerHTML = "Score:  "  + score;

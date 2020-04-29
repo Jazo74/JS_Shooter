@@ -6,8 +6,10 @@ const footerDiv = document.querySelector('.footer')
 const containerDiv = document.querySelector('.playground');
 const ninjaStart = document.querySelector('#first');
 const wildWestStart = document.querySelector('#second');
+const archeryStart = document.querySelector('#third');
 ninjaStart.addEventListener('click',startNinja);
 wildWestStart.addEventListener('click',startWildWest);
+archeryStart.addEventListener('click',startArchery);
 
 function startNinja(){
   swoosh.play();
@@ -17,6 +19,11 @@ function startNinja(){
 function startWildWest(){
   lock.play();
   window.open('./JS_wildwest.html');
+}
+
+function startArchery(){
+  lock.play();
+  window.open('./JS_archery.html');
 }
 
 // Main program
