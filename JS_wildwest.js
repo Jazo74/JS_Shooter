@@ -52,6 +52,9 @@ function onHit(event) {
   event.target.style.opacity = 0;
   score++;
   document.getElementById("score").innerHTML = "Score:  "  + score;
+  if (score % 10 == 0) {
+    kaching.play()
+  }
 }
 
 // This happens when a hit landed on a good target, like orange
@@ -126,7 +129,7 @@ function createATarget(containerDiv) {
     containerDiv.appendChild(img)
     img.style['margin-left'] = rndHorizontal;
     console.log(animEnd,rndHorizontal);
-    img.style.transitionDuration = `${rndSpeed}s`;
+    img.style.transitionDuration = '500ms';
     setTimeout(makeOneMove.bind(null,num),50);
     setTimeout(removeATarget.bind(null, `target_${num}`),(rndSpeed*1000));
     num++
@@ -134,7 +137,8 @@ function createATarget(containerDiv) {
 
 //Removing old targets
 function removeATarget(id){
-    document.getElementById(id).remove();
+    document.getElementById(id).style.opacity = 0;
+    setTimeout(document.getElementById(id).remove(), 5000);
 }
 
 //Resizing the browser window
