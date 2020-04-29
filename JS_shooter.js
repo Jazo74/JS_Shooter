@@ -50,7 +50,12 @@ function count(){
 function onHit(event) {
   const hitTarget = event.target
   swoosh.play();
-  event.target.src = './images/covid_hit.png';
+  if (event.target.src === 'http://127.0.0.1:5500/images/covid.png'){
+    event.target.src = './images/covid_hit.png';
+  } else {
+    event.target.src = './images/bacteria_hit.png';
+  }
+
   event.target.style.opacity = 0;
   score++;
   document.getElementById("score").innerHTML = "Score:  "  + score;
