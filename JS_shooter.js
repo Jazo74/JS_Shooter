@@ -109,15 +109,15 @@ function createATarget(containerDiv) {
     img.setAttribute('class', 'target')
     if (rndTarget === 2){
         img.setAttribute('src', './images/covid.png')
-        img.setAttribute('width', '260')
+        img.setAttribute('width', '280')
         img.addEventListener('mouseover', onHit, { once: true })
     } else if (rndTarget === 1) {
-        img.setAttribute('src', './images/orange.png')
-        img.setAttribute('width', '120px')
+        img.setAttribute('src', './images/orange2.png')
+        img.setAttribute('width', '150px')
         img.addEventListener('mouseover', onFail, { once: true })
     } else {
         img.setAttribute('src', './images/watermelon.png')
-        img.setAttribute('width', '120px')
+        img.setAttribute('width', '130px')
         img.addEventListener('mouseover', onFail, { once: true })
     }
     img.setAttribute('id', `target_${num}`)
