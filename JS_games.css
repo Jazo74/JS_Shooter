@@ -79,7 +79,7 @@ time, mark, audio, video {
 
 #second {
     grid-area: second;
-    background-image: url(./Images/wildwest_logo.jpg);
+    background-image: url(./Images/luke2.png);
     background-size: 100% 100%;
 }
 
@@ -91,13 +91,17 @@ time, mark, audio, video {
 
 #fourth {
     grid-area: fourth;
-    background-image: url(./Images/locked.png);
+    background-image: url(./Images/comingsoon.png);
     background-size: 100% 100%;
 }
 
 .footer {
     grid-area: footer;
     background-color: darkslategray;
+    background-image: url(./images/wallpaper4.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
 }
 
 .logo {

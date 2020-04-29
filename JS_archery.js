@@ -23,7 +23,9 @@ function main() {
     const audio = new Audio('Audio/SuTurno.mp3')
     //setInterval(count,1000)
     addAudioButtons(footerDiv, audio)
-    createATarget(containerDiv);
+    setInterval(() => {
+      createATarget(containerDiv);
+    }, 2000);
   ;
 }
 
