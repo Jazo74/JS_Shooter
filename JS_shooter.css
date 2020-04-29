@@ -120,6 +120,7 @@ time, mark, audio, video {
     border: rgb(18, 60, 94) solid 1px;
     background-color: rgb(83, 146, 116);
     padding-top: 5px;
+    padding-left: 10px;
 }
 
 .logo {
@@ -132,10 +133,118 @@ time, mark, audio, video {
 
 #countdown {
     float: left;
-    margin-left: 15px;
+    height: 35px;
+    width: 110px;
+    border: rgb(18, 60, 94) solid 1px;
+    background-color: rgb(83, 146, 116);
     margin-left: 15px;
     font-size: 22px;
+    height: 35px;
     color: wheat;
+    padding-top: 5px;
     padding-left: 10px;
+
 }
+
+
+
+
+.startupPage {
+    display: absolute;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    background-color: lawngreen;
+    border: solid rgb(255, 175, 175) 4px;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(150,252,0,1) 0%, rgba(124,252,0,0.9287833827893175) 31%, rgba(67,101,39,1) 59%, rgba(53,80,33,1) 78%);    
+    width: 250px;
+    height: 60px;
+    padding: 15px;
+    text-align: center;
+
+}
+
+/* .start-btn, .restart-btn {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: solid  rgb(255, 175, 175) 2px;
+    border-radius: 5px;
+    margin: auto;
+    height: 70px;
+    width: 120px;
+    
+    background-color: rgb(117, 214, 177);
+    padding: 10px 10px;
+
+
+} */
+
+.start-btn:hover, .restart-btn:hover {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: solid  rgb(255, 175, 175) 2px;
+    border-radius: 5px;
+    margin: auto;
+    height: 70px;
+    width: 120px;
+    color: white;
+    background: radial-gradient(circle, rgba(53,80,33,1) 22%, rgba(67,101,39,1) 41%, rgba(124,252,0,0.9287833827893175) 69%, rgba(150,252,0,1) 100%);
+    padding: 10px 10px;
+
+
+}
+
+
+.option_1 {
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color:   rgb(16, 68, 6);
+    border: solid  rgb(255, 175, 175) 2px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 5px;
+    padding: 10px 20px;
+    margin-left: 20px;
+}
+
+.option_1:hover {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: .8rem;
+    border: solid  rgb(255, 175, 175) 2px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin-left: 20px;
+    background: radial-gradient(circle, rgba(53,80,33,1) 22%, rgba(67,101,39,1) 41%, rgba(124,252,0,0.9287833827893175) 69%, rgba(150,252,0,1) 100%);
+}
+
+.option_2 {
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color:   rgb(16, 68, 6);
+    border: solid  rgb(255, 175, 175) 2px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 20px;
+}
+
+.option_2:hover {
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color:   rgb(255, 255, 255);
+    background: radial-gradient(circle, rgba(150,252,0,1) 0%, rgba(124,252,0,0.9287833827893175) 31%, rgba(67,101,39,1) 59%, rgba(53,80,33,1) 78%);
+    border: solid  rgb(255, 175, 175) 2px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 20px;
+}
+
+
+
 

@@ -15,17 +15,24 @@ const containerDiv = document.querySelector('.playground');
 
 // Main program
 function main() {
-  //"global"
+  "global"
     const scoreCounter = document.getElementById("score")
     scoreDesign(scoreCounter)
+
     window.addEventListener('resize', resizeWindow);
     containerDiv.style.height = currentHeight - 190;
+
+  // startup 1min or no timer
+  const timer = document.querySelector('.option_1')
+  const noTimer = document.querySelector('.option_2')
+  timer.addEventListener('click', startWithTimer)
+  noTimer.addEventListener('click', startWithOutTimer)
+
+
     const audio = new Audio('Audio/SuTurno.mp3')
     setInterval(count,1000)
     addAudioButtons(footerDiv, audio)
-    setInterval(() => {
-    createATarget(containerDiv);
-  }, 1000);
+  
 }
 
 // Moving the targets
@@ -37,7 +44,9 @@ function makeOneMove(num) {
   target.style['margin-top'] = rndVertical;
 }
 
-function count(){
+function startWithTimer(){
+  const startupPage = document.querySelector('.startupPage')
+  startupPage.classList.add('hide')
   timer = timer + 1;
   document.getElementById("countdown").innerHTML = "Timer: "  + timer;
   if(timer == 60){
@@ -45,6 +54,20 @@ function count(){
     timer = 0;
     score = 0;
   }
+  setInterval(() => {
+    createATarget(containerDiv);
+  }, 1000);
+}
+
+function startWithOutTimer() {
+  const startupPage = document.querySelector('.startupPage')
+  startupPage.classList.add('hide')
+  const timer = document.getElementById('countdown')
+  timer.setAttribute('class', 'hide')
+  setInterval(() => {
+    createATarget(containerDiv);
+  }, 1000);
+
 }
 
 // This happens when a hit landed on a target
@@ -149,7 +172,6 @@ function resizeWindow(){
     currentHeight = window.innerHeight;
     currentWidth = window.innerWidth;
     containerDiv.style.height = currentHeight - 210;
-    containerDiv.style.width = currentWidth - 210;
     let maxDeep = currentHeight - 300;
 }
 
