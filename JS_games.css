@@ -20,12 +20,12 @@ time, mark, audio, video {
 }
 
 .main {
-    background-color: rgb(16, 68, 6);
+    background-color: rgb(219, 194, 146);
     display: grid;
     grid-template-areas: "header"
                          "playground"
                          "footer";
-    grid-template-rows: 80px auto 80px;
+    grid-template-rows: 100px auto 80px;
     grid-gap: 10px;
 }
 .title {
@@ -42,27 +42,31 @@ time, mark, audio, video {
     background-color: rgb(83, 146, 116);
     text-align: center;
     align-items: center;
+    background-image: url(./images/wallpaper4.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
 }
 
 .playground {
     background-color: rgb(49, 48, 48);
     display: grid;
     grid-template-areas: "first second third fourth";
-    grid-template-columns: 200px 200px 200px 200px;
-    grid-template-rows: 200px;
-    grid-gap: 40px;
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-rows: 300px;
+    grid-gap: 50px;
     justify-content: center;
     overflow: hidden;
-    background-image: url(./images/gamehub.jpg) ;
+    background-image: url(./images/wallpaper4.jpg) ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
 }
 
 .games {
-    margin-top: 450px;
-    height: 200px;
-    width: 200px;
+    margin-top: 350px;
+    height: 300px;
+    width: 300px;
     background-color: wheat;
     border-radius: 10px;
 }

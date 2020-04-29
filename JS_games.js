@@ -1,9 +1,6 @@
 // komment
 let currentHeight = window.innerHeight;
 let currentWidth = window.innerWidth;
-let animEnd = currentWidth - 250;
-let animEndY = currentHeight - 300;
-let maxDeep = currentHeight - 300;
 const headerDiv = document.querySelector('.header')
 const footerDiv = document.querySelector('.footer')
 const containerDiv = document.querySelector('.playground');
@@ -13,10 +10,12 @@ ninjaStart.addEventListener('click',startNinja);
 wildWestStart.addEventListener('click',startWildWest);
 
 function startNinja(){
+  swoosh.play();
   window.open('./JS_shooter.html');
 }
 
 function startWildWest(){
+  lock.play();
   window.open('./JS_wildwest.html');
 }
 
@@ -24,7 +23,7 @@ function startWildWest(){
 function main() {
   //"global"
     window.addEventListener('resize', resizeWindow);
-    containerDiv.style.height = currentHeight - 190;
+    containerDiv.style.height = currentHeight - 200;
     
 }
 
@@ -32,7 +31,7 @@ function main() {
 function resizeWindow(){
     currentHeight = window.innerHeight;
     currentWidth = window.innerWidth;
-    containerDiv.style.height = currentHeight - 210;
+    containerDiv.style.height = currentHeight - 200;
     containerDiv.style.width = currentWidth - 210;
     let maxDeep = currentHeight - 300;
 }

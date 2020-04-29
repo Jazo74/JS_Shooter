@@ -96,7 +96,7 @@ function addAudioButtons(footerDiv, audio) {
 
 // Creating targets
 function createATarget(containerDiv) {
-    let rndTarget = Math.floor(Math.random() * 3);
+    let rndTarget = Math.floor(Math.random() * 4);
     let rndVertical = Math.floor(Math.random() * maxDeep);
     let rndSpeed = 0;
     while (true) {
@@ -107,14 +107,18 @@ function createATarget(containerDiv) {
     }
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
-    if (rndTarget === 2){
+    if (rndTarget === 3){
         img.setAttribute('src', './images/covid.png')
         img.setAttribute('width', '280')
         img.addEventListener('mouseover', onHit, { once: true })
-    } else if (rndTarget === 1) {
+    } else if (rndTarget === 2) {
         img.setAttribute('src', './images/orange2.png')
         img.setAttribute('width', '150px')
         img.addEventListener('mouseover', onFail, { once: true })
+    } else if (rndTarget === 1) {
+        img.setAttribute('src', './images/bacteria.png')
+        img.setAttribute('width', '250px')
+        img.addEventListener('mouseover', onHit, { once: true })
     } else {
         img.setAttribute('src', './images/watermelon.png')
         img.setAttribute('width', '130px')
