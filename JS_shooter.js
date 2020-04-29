@@ -30,7 +30,6 @@ function main() {
 
 
     const audio = new Audio('Audio/SuTurno.mp3')
-    setInterval(count,1000)
     addAudioButtons(footerDiv, audio)
   
 }
@@ -44,9 +43,7 @@ function makeOneMove(num) {
   target.style['margin-top'] = rndVertical;
 }
 
-function startWithTimer(){
-  const startupPage = document.querySelector('.startupPage')
-  startupPage.classList.add('hide')
+function count() {
   timer = timer + 1;
   document.getElementById("countdown").innerHTML = "Timer: "  + timer;
   if(timer == 60){
@@ -54,6 +51,14 @@ function startWithTimer(){
     timer = 0;
     score = 0;
   }
+}
+
+function startWithTimer(){
+  const startupPage = document.querySelector('.startupPage')
+  startupPage.classList.add('hide')
+
+  setInterval(count, 1000)
+
   setInterval(() => {
     createATarget(containerDiv);
   }, 1000);
@@ -64,6 +69,7 @@ function startWithOutTimer() {
   startupPage.classList.add('hide')
   const timer = document.getElementById('countdown')
   timer.setAttribute('class', 'hide')
+
   setInterval(() => {
     createATarget(containerDiv);
   }, 1000);
