@@ -90,7 +90,7 @@ time, mark, audio, video {
     background-color: rgb(97, 97, 97);
 }
 
-.audioButton {
+.bottomButton {
     font-family: 'Audiowide', cursive;
     font-size: 20px;
     margin: 10px;
@@ -144,8 +144,8 @@ time, mark, audio, video {
 
 }
 
-.startupPage {
-    display: flex;
+/* .startupPage {
+    display: inline-block;
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
@@ -153,15 +153,15 @@ time, mark, audio, video {
     border: solid rgb(54, 106, 190) 3px;
     border-radius: 10px;
     background-color: rgb(83, 146, 116);
-    /* background: radial-gradient(circle, rgba(150,252,0,1) 0%, rgba(124,252,0,0.9287833827893175) 31%, rgba(67,101,39,1) 59%, rgba(53,80,33,1) 78%);     */
     width: 460px;
     height: 150px;
     text-align: center;
     align-items: center;
+    position: absolute;
 
-}
+} */
 
-.option_1, .option_2{
+/* .option_1, .option_2{
     display: inline-block;
     width: 200px;
     font-family: 'Audiowide', cursive;
@@ -175,13 +175,38 @@ time, mark, audio, video {
     padding: 10px 20px;
     margin-left: 20px;
     background-color: wheat;
-}
+} */
 
-.option_1:hover, .option_2:hover {
+/* .option_1:hover, .option_2:hover {
     display: inline-block;
     color: rgb(255, 255, 255);
     background-color: rgb(83, 146, 116);
-    /* background: radial-gradient(circle, rgba(53,80,33,1) 22%, rgba(67,101,39,1) 41%, rgba(124,252,0,0.9287833827893175) 69%, rgba(150,252,0,1) 100%); */
+     background: radial-gradient(circle, rgba(53,80,33,1) 22%, rgba(67,101,39,1) 41%, rgba(124,252,0,0.9287833827893175) 69%, rgba(150,252,0,1) 100%); 
+} */
+
+.finalScore {
+    display: none;
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    border: solid rgb(54, 106, 190) 3px;
+    border-radius: 10px;
+    background-color: rgb(83, 146, 116);
+    width: 460px;
+    height: 150px;
+    text-align: center;
+    align-items: center;
+}
+
+#finalScore {
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: 'Audiowide', cursive;
+    font-size: 1.2rem;
+    color:   wheat;
 }
 
 .credit {

@@ -9,31 +9,32 @@ let currentWidth = window.innerWidth;
 let animEnd = currentWidth - 250;
 let animEndY = currentHeight - 300;
 let maxDeep = currentHeight - 300;
+let countId;
+let gameId;
 const mainBody = document.querySelector('.main');
 const headerDiv = document.querySelector('.header');
 const footerDiv = document.querySelector('.footer');
 const containerDiv = document.querySelector('.playground');
 const buttonGroup = document.querySelector('.buttonGroup')
 const startupPage = document.querySelector('.startupPage')
+const finalScoreDiv = document.querySelector('.finalScore')
+const finalScore = document.querySelector('#finalScore');
+let minGame;
+let freeGame;
+
 
 // Main program
 function main() {
   "global"
+    const audio = new Audio('Audio/SuTurno.mp3')
+    addAudioButtons(footerDiv, audio)
     const scoreCounter = document.getElementById("score")
+    minGame = document.querySelector('#minGame');
+    freeGame = document.querySelector('#freeGame');
     scoreDesign(scoreCounter)
     mainBody.height = currentHeight;
     window.addEventListener('resize', resizeWindow);
     containerDiv.style.height = currentHeight - 190;
-
-  // startup 1min or no timer
-  const timer = document.querySelector('.option_1')
-  const noTimer = document.querySelector('.option_2')
-  timer.addEventListener('click', startWithTimer)
-  noTimer.addEventListener('click', startWithOutTimer)
-
-
-    const audio = new Audio('Audio/SuTurno.mp3')
-    addAudioButtons(footerDiv, audio)
   
 }
 
@@ -49,23 +50,35 @@ function makeOneMove(num) {
 function count() {
   timer = timer + 1;
   document.getElementById("countdown").innerHTML = "Timer: "  + timer;
-  if(timer == 60){
-    alert("Game is finished! Point: " + score);
+  if(timer === 5){
+    clearInterval(countId);
+    clearInterval(gameId);
+    //alert("Game is finished! Point: " + score);
     timer = 0;
     score = 0;
+    finalScoreDiv.style.display = 'flex';
+    freeGame.innerHTML = 'Free game';
+    minGame.style.display = '';
+    freeGame.style.display = '';
   }
 }
 
 function startWithTimer(){
-  startupPage.style.display = 'none';
-  setInterval(count, 1000)
-  setInterval(() => {
+  minGame.style.display = 'none';
+  freeGame.style.display = 'none';
+  freeGame.innerHTML = 'More target!';
+  finalScoreDiv.style.display = 'none';
+  countId = setInterval(count, 1000)
+  gameId = setInterval(() => {
     createATarget(containerDiv);
   }, 1000);
 }
 
 function startWithOutTimer() {
-  startupPage.style.display = 'none';
+  score = 0;
+  minGame.style.display = 'none';
+  freeGame.innerHTML = 'More target!';
+  finalScoreDiv.style.display = 'none';
   const timer = document.getElementById('countdown')
   timer.setAttribute('class', 'hide')
   setInterval(() => {
@@ -86,6 +99,7 @@ function onHit(event) {
   event.target.style.opacity = 0;
   score++;
   document.getElementById("score").innerHTML = "Score:  "  + score;
+  document.getElementById("finalScore").innerHTML = "Final Score:  "  + score;
 }
 
 // This happens when a hit landed on a good target, like orange
@@ -94,8 +108,9 @@ function onFail(event) {
     cling.play();
     //event.target.src = './covid_hit.png';
     event.target.style.opacity = 0;
-    score -= 3;
+    score -= 1;
     document.getElementById("score").innerHTML = "Score:  "  + score;
+    document.getElementById("finalScore").innerHTML = "Final Score:  "  + score;
   }
 
 // Creating audio buttons
@@ -103,13 +118,13 @@ function addAudioButtons(footerDiv, audio) {
 
   const audioButton = document.createElement('button')
   audioButton.addEventListener('click', function() {audio.play();})
-  audioButton.setAttribute('class', 'audioButton')
+  audioButton.setAttribute('class', 'bottomButton')
   audioButton.setAttribute('alt', 'click to play music')
   audioButton.innerText = 'Play music'
 
   const muteButton = document.createElement('button')
   muteButton.addEventListener('click', function() {audio.pause();})
-  muteButton.setAttribute('class', 'audioButton')
+  muteButton.setAttribute('class', 'bottomButton')
   muteButton.setAttribute('alt', 'click to stop music')
   muteButton.innerText = 'Pause music'
 
@@ -117,13 +132,29 @@ function addAudioButtons(footerDiv, audio) {
   unMuteButton.addEventListener('click', function() {
     video.muted = false;
   });
-  unMuteButton.setAttribute('class', 'audioButton')
+  unMuteButton.setAttribute('class', 'bottomButton')
   unMuteButton.setAttribute('alt', 'click to stop sound effect')
   unMuteButton.innerText = 'Mute sound  '
+
+  const start1MinButton = document.createElement('button')
+  start1MinButton.addEventListener('click', startWithTimer)
+  start1MinButton.setAttribute('class', 'bottomButton')
+  start1MinButton.setAttribute('id', 'minGame')
+  start1MinButton.setAttribute('alt', 'start 1 min game')
+  start1MinButton.innerText = '1min game'
+
+  const freeGameButton = document.createElement('button')
+  freeGameButton.addEventListener('click', startWithOutTimer)
+  freeGameButton.setAttribute('class', 'bottomButton')
+  freeGameButton.setAttribute('id', 'freeGame')
+  freeGameButton.setAttribute('alt', 'Free game')
+  freeGameButton.innerText = 'Free game'
 
   buttonGroup.appendChild(audioButton)
   buttonGroup.appendChild(muteButton)
   buttonGroup.appendChild(unMuteButton)
+  buttonGroup.appendChild(start1MinButton)
+  buttonGroup.appendChild(freeGameButton)
 }
 
 // Creating targets

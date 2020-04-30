@@ -22,7 +22,7 @@ function startWildWest(){
 }
 
 function startArchery(){
-  lock.play();
+  throwKnife.play();
   window.open('./JS_archery.html');
 }
 

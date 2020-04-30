@@ -54,10 +54,10 @@ function onHit(event) {
   score++;
   document.getElementById("score").innerHTML = "Score:  "  + score;
   if (score % 10 == 0) {
-    kaching.play()
+    bite2.play()
   }
   if (score % 6 == 0) {
-    lock.play()
+    bite.play()
   }
 }
 
@@ -93,8 +93,8 @@ function addAudioButtons(footerDiv, audio) {
 function createATarget(containerDiv) {
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
-    img.setAttribute('src', './images/target.png')
-    img.setAttribute('width', '150')
+    img.setAttribute('src', './images/apple.png')
+    img.setAttribute('width', '100')
     img.style['margin-top'] = animEndY-450;
     img.addEventListener('click', onHit, { once: true })
     img.setAttribute('id', `target_${num}`)
@@ -111,7 +111,6 @@ function resizeWindow(){
     currentHeight = window.innerHeight;
     currentWidth = window.innerWidth;
     containerDiv.style.height = currentHeight - 210;
-    //containerDiv.style.width = currentWidth - 210;
     let maxDeep = currentHeight - 300;
 }
 
