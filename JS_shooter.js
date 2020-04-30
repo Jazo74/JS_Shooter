@@ -26,7 +26,7 @@ let freeGame;
 // Main program
 function main() {
   "global"
-    const audio = new Audio('Audio/SuTurno.mp3')
+    const audio = new Audio('Audio/pirates.mp3')
     addAudioButtons(footerDiv, audio)
     const scoreCounter = document.getElementById("score")
     minGame = document.querySelector('#minGame');
@@ -50,7 +50,7 @@ function makeOneMove(num) {
 function count() {
   timer = timer + 1;
   document.getElementById("countdown").innerHTML = "Timer: "  + timer;
-  if(timer === 5){
+  if(timer === 60){
     clearInterval(countId);
     clearInterval(gameId);
     //alert("Game is finished! Point: " + score);
@@ -105,10 +105,10 @@ function onHit(event) {
 // This happens when a hit landed on a good target, like orange
 function onFail(event) {
     const hitTarget = event.target
-    cling.play();
+    bite.play();
     //event.target.src = './covid_hit.png';
     event.target.style.opacity = 0;
-    score -= 1;
+    score += 2;
     document.getElementById("score").innerHTML = "Score:  "  + score;
     document.getElementById("finalScore").innerHTML = "Final Score:  "  + score;
   }

@@ -93,8 +93,8 @@ function addAudioButtons(footerDiv, audio) {
 function createATarget(containerDiv) {
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
-    img.setAttribute('src', './images/apple.png')
-    img.setAttribute('width', '100')
+    img.setAttribute('src', './images/target.png')
+    img.setAttribute('width', '150')
     img.style['margin-top'] = animEndY-450;
     img.addEventListener('click', onHit, { once: true })
     img.setAttribute('id', `target_${num}`)
