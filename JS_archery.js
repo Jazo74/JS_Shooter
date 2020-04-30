@@ -9,6 +9,8 @@ let currentWidth = window.innerWidth;
 let animEnd = currentWidth - 550;
 let animEndY = currentHeight - 300;
 let maxDeep = currentHeight - 300;
+let xCoord = 0;
+let yCoord = 0;
 const headerDiv = document.querySelector('.header')
 const footerDiv = document.querySelector('.footer')
 const containerDiv = document.querySelector('.playground');
@@ -23,9 +25,10 @@ function main() {
     const audio = new Audio('Audio/SuTurno.mp3')
     //setInterval(count,1000)
     addAudioButtons(footerDiv, audio)
-    setInterval(() => {
-      createATarget(containerDiv);
-    }, 2000);
+    createATarget(containerDiv);
+    // setInterval(() => {
+    //   createATarget(containerDiv);
+    // }, 2000);
   ;
 }
 
@@ -44,14 +47,50 @@ function count(){
   }
 }
 
+function hitCalculate(xHit, yHit) {
+  let xDist = Math.abs(xCoord - xHit);
+  let yDist = Math.abs(yCoord+90 - yHit);
+  let dist = 0;
+  console.log(xDist, yDist);
+  if (xDist >= yDist) {
+    dist = xDist;
+  } else {
+    dist = yDist;
+  }
+  if (dist <= 11) {
+    return 15;
+  } else if (dist <= 22) {
+    return 10;
+  }else if (dist <= 32) {
+    return 8;
+  }else if (dist <= 44) {
+    return 5;
+  }else if (dist <= 54) {
+    return 4;
+  }else if (dist <= 66) {
+    return 3;
+  }else if (dist <= 76) {
+    return 2;
+  }else if (dist <= 92) {
+    return 1;
+  }else {
+    return -1;
+  }
+  return 0;
+}
 // This happens when a hit landed on a target
 function onHit(event) {
-  const hitTarget = event.target
+  const hitTarget = event.target;
+  const xHit = event.clientX;
+  const yHit = event.clientY;
+  console.log(xHit, yHit);
+  let result = hitCalculate(xHit, yHit)
+  console.log(result);
   shoot.play();
-  event.target.src = './images/moneybag.png';
-  event.target.width = '100px';
-  event.target.style.opacity = 0;
-  score++;
+  //event.target.src = './images/moneybag.png';
+  //event.target.width = '200px';
+  // event.target.style.opacity = 0;
+  score += result;
   document.getElementById("score").innerHTML = "Score:  "  + score;
   if (score % 10 == 0) {
     bite2.play()
@@ -94,9 +133,13 @@ function createATarget(containerDiv) {
     const img = document.createElement('img')
     img.setAttribute('class', 'target')
     img.setAttribute('src', './images/target.png')
-    img.setAttribute('width', '150')
-    img.style['margin-top'] = animEndY-450;
-    img.addEventListener('click', onHit, { once: true })
+    img.setAttribute('width', '200');
+    xCoord = 400;
+    yCoord = 300;
+    img.style['margin-left'] = xCoord-100;
+    img.style['margin-top'] = yCoord-100;
+    console.log(xCoord, yCoord+90);
+    img.addEventListener('click', onHit)
     img.setAttribute('id', `target_${num}`)
     img.setAttribute('height', 'auto')
     containerDiv.appendChild(img)
