@@ -50,6 +50,7 @@ function makeOneMove(num) {
 function count() {
   timer = timer + 1;
   document.getElementById("countdown").innerHTML = "Timer: "  + timer;
+  document.getElementById("score").innerHTML = "Score:  "  + score;
   if(timer === 60){
     clearInterval(countId);
     clearInterval(gameId);
